@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:ika_ticket/pages/liste-ticket_page.dart';
+import 'package:ika_ticket/pages/ticket-list_page.dart';
 
 class AuthService{  
   Future<void> login({
@@ -29,14 +31,14 @@ class AuthService{
       }else if (e.code== 'email-alery-use'){
         message = 'An account already exists whits that email.';
       }
-      // Fluttertoast.showToast(
-      //   mgs: message,
-      //   toastLenght: Toast.LENGHT_LONG,
-      //   gravity: ToastGravity.SNACKBAR,
-      //   bacgroundColor: Colors.black54,
-      //   textColor: Colors.white,
-      //   fontsize: 14,0,
-      // );
+      Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.SNACKBAR,
+        backgroundColor: Colors.black54,
+        textColor: Colors.white,
+        fontSize: 14.0
+      );
     }
      catch (e){}
   }
@@ -57,7 +59,7 @@ class AuthService{
       Navigator.pushReplacement( 
         context,
         MaterialPageRoute(
-          builder: (BuildContext context) => TicketListScreen(),
+          builder: (BuildContext context) => const ListeTicket(),
         )
       );
 
@@ -68,14 +70,14 @@ class AuthService{
       }else if (e.code== 'wrong-password'){
         message = 'wrong password provided for that user.';
       }
-      // Fluttertoast.showToast(
-      //   mgs: message,
-      //   toastLenght: Toast.LENGHT_LONG,
-      //   gravity: ToastGravity.SNACKBAR,
-      //   bacgroundColor: Colors.black54,
-      //   textColor: Colors.white,
-      //   fontsize: 14,0,
-      // );
+      Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.SNACKBAR,
+        backgroundColor: Colors.black54,
+        textColor: Colors.white,
+        fontSize: 14.0
+      );
     }
      catch (e){}
   }

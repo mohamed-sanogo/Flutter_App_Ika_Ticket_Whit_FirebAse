@@ -17,7 +17,7 @@ class InputField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: TextField(
-        controller: controller, // Contrôleur pour récupérer le texte
+        controller: controller,
         obscureText: isPassword,
         decoration: InputDecoration(
           hintText: hintText,
